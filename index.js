@@ -9,20 +9,26 @@ menuBtn.addEventListener("click", () => {
   list.classList.toggle("active");
 });
 
-const opotins = {
-  root:null,
-  rootMargin:"0px",
-  treshold:0.5,
+const isElementinviewport = (el)=> {
+  const rect = el.getBoundingClienRect()
+  return(
+    rect.top >=0 &&
+    rect.left >=0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom <= (window.innerWidth || document.documentElement.clientWidth) 
+  )
+  
 }
-function callback(entries,observer){
-  entries.forEach(entry => {
-    if (entry.isInterSection) {
-      console.log("element видимий")
-    } else {
-      console.log("element невидимий")
-    }
-  });
+
+console.log(isElementinviewport(menuBtn));
+
+const handleScroll =() {
+  const section = document.querySelector(".customers__list")
+  if (isElementinviewport(section)){
+    section.classList.add(".customers__animation")
+    window.removeEventListener("scroll",handleScroll)
+  }
 }
-const observer = new  IntersectionObserver(callback,options)
-const Targetelement = document.querySelector(".customers");
-observer.observe(Targetelement);
+
+window.addEventListener("scroll",handleScroll)
+handleScroll()

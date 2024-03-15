@@ -50,6 +50,8 @@ body {
   --hero-title: 40px;
   --main-font: "Poppins", sans-serif;
   --secondary-font: "Inter", sans-serif;
+  --third-text:13px;
+  --title-font:30px;
 }
 
 @media screen and (min-width: 520px) {
@@ -251,12 +253,13 @@ body {
 .hero {
   padding: var(--section-padding);
 }
-.hero__head {
+.hero__head, .hero__image {
   position: relative;
   margin-bottom: 50px;
   animation-name: hero__text;
   animation-duration: 1.4s;
 }
+
 
 @keyframes  hero__text {
   0%{
@@ -453,20 +456,22 @@ body {
 .customers ::before{
   content: "";
   position: absolute;
-background-image: url(./img/BG.svg);
+background-image: url(./img/before.svg);
   top: 30px;
   left: -282px;
   width: 550px;
-  height: 500px;
+  height: 419px;
   background-size: contain;
   background-repeat: no-repeat;
   transform: rotate(100deg);
+  border: #A596FF;
+  opacity: 20%;
 }
 
 .customers ::after{
   content: "";
   position: absolute;
-background-image: url(./img/BG.svg);
+background-image: url(./img/after.svg);
   bottom: -85px;
   right: -167px;
   width: 330px;
@@ -474,6 +479,8 @@ background-image: url(./img/BG.svg);
   background-size: contain;
   background-repeat: no-repeat;
   transform: rotate(25deg);
+  border: #A596FF;
+  opacity: 20%;
 }
 
 .customers__list {
@@ -550,4 +557,49 @@ margin-top: 0;
     margin-left: 67px;
     padding: 0 67px;
   }
+}
+
+.quality{
+padding-top:60px ;
+}
+
+.quality__text span{
+  color: var(--primary-color);
+}
+
+.quality__text h1{
+  font-size: 30px;
+  font-weight: 700px;
+  padding: 0 20px;
+  padding-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quality__list{
+  padding: 0 20px;
+  color: var(--secondary-color);
+  font-size: var(--third-text);
+  list-style: disc;
+}
+
+.quiality__item:nth-child(1){
+  padding-bottom: 20px;
+}
+
+.quality__btn{
+  color: white;
+  background-color: var(--primary-color);
+  padding: 14px 24px;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.quality__wrapper{
+  display: flex;
+  justify-content: center;
 }
